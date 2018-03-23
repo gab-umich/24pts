@@ -37,6 +37,18 @@ class Fraction:
             print("0")
         print("{}/{}".format(self.numerator, self.denominator))
 
+    def __add__(self, frac_to_add):
+        return add(self, frac_to_add)
+
+    def __mul__(self, frac_to_mul):
+        return mul(self, frac_to_mul)
+
+    def __sub__(self, frac_to_sub):
+        return sub(self, frac_to_sub)
+
+    def __truediv__(self, frac_to_div):
+        return div(self, frac_to_div)
+
 
 # END OF CLASS DEFINITION
 
