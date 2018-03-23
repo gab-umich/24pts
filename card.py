@@ -18,6 +18,8 @@ class Card:
         else:
             self.rank = rank
 
+    def rank(self):
+        return self.rank
+
     def print(self):
-        print("{}".format(self.rank))
-    
+        print(self.rank())
