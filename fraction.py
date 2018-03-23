@@ -35,7 +35,10 @@ class Fraction:
     def print(self):
         if self.numerator == 0:
             print("0")
-        print("{}/{}".format(self.numerator, self.denominator))
+        if self.denominator == 1:
+            print(self.numerator)
+        else:
+            print("{}/{}".format(self.numerator, self.denominator))
 
     def __add__(self, frac_to_add):
         return add(self, frac_to_add)
