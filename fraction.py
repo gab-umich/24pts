@@ -35,7 +35,7 @@ class Fraction:
     def print(self):
         if self.numerator == 0:
             print("0")
-        if self.denominator == 1:
+        elif self.denominator == 1:
             print(self.numerator)
         else:
             print("{}/{}".format(self.numerator, self.denominator))
