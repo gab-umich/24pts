@@ -41,38 +41,43 @@ class Fraction:
 # END OF CLASS DEFINITION
 
 
-def add(frac1, frac2):
-    """________Require: frac1 and frac2 are simplified
+def add(arg1, arg2):
+    """________Require: arg1 and arg2 are simplified
+                        arg1, arg2 can be a Fraction class or an integer
                Modify:  nothing
                Effect:  return frac1 added by frac2 and simplified"""
-    new_nu = frac1.numerator * frac2.denominator + frac2.numerator * frac1.denominator
-    new_de = frac1.denominator * frac2.denominator
-    new_frac = Fraction(new_nu, new_de)
-    return new_frac
+    if isinstance(arg1, int):
+        arg1 = Fraction(arg1, 1)
+    if isinstance(arg2, int):
+        arg2 = Fraction(arg2, 1)
+    new_nu = arg1.numerator * arg2.denominator + arg2.numerator * arg1.denominator
+    new_de = arg1.denominator * arg2.denominator
+    new_val = Fraction(new_nu, new_de)
+    return new_val
 
-def sub(frac1, frac2):
-    """________Require: frac1 and frac2 are simplified
+def sub(arg1, arg2):
+    """________Require: arg1 and arg2 are simplified
                Modify:  nothing
-               Effect:  return frac2 subtracted from frac1 and simplified"""
-    new_nu = frac1.numerator * frac2.denominator - frac2.numerator * frac1.denominator
-    new_de = frac1.denominator * frac2.denominator
-    new_frac = Fraction(new_nu, new_de)
-    return new_frac
+               Effect:  return arg2 subtracted from arg1 and simplified"""
+    new_nu = arg1.numerator * arg2.denominator - arg2.numerator * arg1.denominator
+    new_de = arg1.denominator * arg2.denominator
+    new_val = Fraction(new_nu, new_de)
+    return new_val
 
-def mul(frac1, frac2):
-    """________Require: frac1 and frac2 are simplified
+def mul(arg1, arg2):
+    """________Require: arg1 and arg2 are simplified
                Modify:  nothing
-               Effect:  return frac1 multiplied by frac2 and simplified"""
-    new_frac = Fraction(frac1.numerator * frac2.numerator, frac1.denominator * frac2.denominator)
-    return new_frac
+               Effect:  return arg1 multiplied by arg2 and simplified"""
+    new_val = Fraction(arg1.numerator * arg2.numerator, arg1.denominator * arg2.denominator)
+    return new_val
 
 
-def div(frac1, frac2):
-    """________Require: frac1 and frac2 are simplified
+def div(arg1, arg2):
+    """________Require: arg1 and arg2 are simplified
                Modify:  nothing
-               Effect:  return frac1 divided by frac2 simplified"""
+               Effect:  return arg1 divided by arg2 simplified"""
     # this is tricky! What can go wrong in div??
-    new_nu = frac1.numerator * frac2.denominator
-    new_de = frac1.denominator * frac2.numerator
-    new_frac = Fraction(new_nu, new_de)
-    return new_frac
+    new_nu = arg1.numerator * arg2.denominator
+    new_de = arg1.denominator * arg2.numerator
+    new_val = Fraction(new_nu, new_de)
+    return new_val
