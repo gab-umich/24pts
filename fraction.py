@@ -31,12 +31,18 @@ class Fraction:
         except ValueError as err:
             print(err)
 
+    def val(self):
+        if self.numerator == 0:
+            return 0
+        elif self.denominator == 1:
+            return self.numerator
+        else:
+            return self
+
     # Do not modify the print function at all!
     def print(self):
-        if self.numerator == 0:
-            print("0")
-        elif self.denominator == 1:
-            print(self.numerator)
+        if isinstance(self.val(), int):
+            print(self.val())
         else:
             print("{}/{}".format(self.numerator, self.denominator))
 
@@ -70,6 +76,7 @@ def add(arg1, arg2):
     new_val = Fraction(new_nu, new_de)
     return new_val
 
+
 def sub(arg1, arg2):
     """________Require: arg1 and arg2 are simplified
                Modify:  nothing
@@ -82,6 +89,7 @@ def sub(arg1, arg2):
     new_de = arg1.denominator * arg2.denominator
     new_val = Fraction(new_nu, new_de)
     return new_val
+
 
 def mul(arg1, arg2):
     """________Require: arg1 and arg2 are simplified
