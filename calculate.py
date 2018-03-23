@@ -14,3 +14,6 @@ def permutation(card1, card2, card3, card4, target=24):
     print("Beginning the permutation of number: {}, {}, {} and {}.".format(r1, r2, r3, r4))
     print("----------------------------------")
 
+# TODO: I am thinking about a class with 6 characteristics of permitted
+# Operations given two values. And then a set of 3 ``witnesses'' to keep track of the
+# Operation carried out so far.
