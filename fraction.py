@@ -74,6 +74,10 @@ def sub(arg1, arg2):
     """________Require: arg1 and arg2 are simplified
                Modify:  nothing
                Effect:  return arg2 subtracted from arg1 and simplified"""
+    if isinstance(arg1, int):
+        arg1 = Fraction(arg1, 1)
+    if isinstance(arg2, int):
+        arg2 = Fraction(arg2, 1)
     new_nu = arg1.numerator * arg2.denominator - arg2.numerator * arg1.denominator
     new_de = arg1.denominator * arg2.denominator
     new_val = Fraction(new_nu, new_de)
@@ -83,6 +87,10 @@ def mul(arg1, arg2):
     """________Require: arg1 and arg2 are simplified
                Modify:  nothing
                Effect:  return arg1 multiplied by arg2 and simplified"""
+    if isinstance(arg1, int):
+        arg1 = Fraction(arg1, 1)
+    if isinstance(arg2, int):
+        arg2 = Fraction(arg2, 1)
     new_val = Fraction(arg1.numerator * arg2.numerator, arg1.denominator * arg2.denominator)
     return new_val
 
@@ -92,6 +100,10 @@ def div(arg1, arg2):
                Modify:  nothing
                Effect:  return arg1 divided by arg2 simplified"""
     # this is tricky! What can go wrong in div??
+    if isinstance(arg1, int):
+        arg1 = Fraction(arg1, 1)
+    if isinstance(arg2, int):
+        arg2 = Fraction(arg2, 1)
     new_nu = arg1.numerator * arg2.denominator
     new_de = arg1.denominator * arg2.numerator
     new_val = Fraction(new_nu, new_de)
