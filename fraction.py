@@ -23,7 +23,7 @@ class Fraction:
                     Effect:  GCD(numerator, denominator) == 1"""
         try:
             if self.denominator == 0:
-                raise ValueError("denominator is zero ")
+                raise ValueError("denominator is zero!")
             gcd_ = gcd(self.numerator, self.denominator)
             self.numerator //= gcd_
             self.denominator //= gcd_
