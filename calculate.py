@@ -26,7 +26,17 @@ class Formula:
         if operation == Operation.VAL:
             self.result = Fraction(optVal, 1)
         elif operation == Operation.A_ADD_B:
-            self.result = 
+            self.result = a.result + b.result
+        elif operation == Operation.A_MIN_B:
+            self.result = a.result - b.result
+        elif operation == Operation.B_MIN_A:
+            self.result = b.result - a.result
+        elif operation == Operation.A_MUL_B:
+            self.result = a.result * b.result
+        elif operation == Operation.A_DIV_B:
+            self.result = a.result / b.result
+        elif operation == Operation.B_DIV_A:
+            self.result = b.result / a.result
 
 
 
