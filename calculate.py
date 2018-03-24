@@ -1,4 +1,4 @@
-import fraction
+from fraction import Fraction
 import math
 import card
 from enum import Enum
@@ -23,6 +23,11 @@ class Formula:
         self.Opt_Val = optVal
         self.result = None
         # TODO: how to find result depending on the operation??
+        if operation == Operation.VAL:
+            self.result = Fraction(optVal, 1)
+        elif operation == Operation.A_ADD_B:
+            self.result =
+
 
 
 def permutation(card1, card2, card3, card4, target=24):
