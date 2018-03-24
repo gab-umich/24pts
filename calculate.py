@@ -9,7 +9,7 @@ def permutation(card1, card2, card3, card4, target=24):
     r2 = card2.rank
     r3 = card3.rank
     r4 = card4.rank
-
+    
     print("----------------------------------")
     print("Beginning the permutation of number: {}, {}, {} and {}.".format(r1, r2, r3, r4))
     print("----------------------------------")
