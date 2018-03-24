@@ -14,13 +14,15 @@ class Operation(Enum):
 
 
 class Formula:
+    """Require a, b to be Formula, optVal be int
+        Find the result in the __init__"""
     def __init__(self, a, b, operation, optVal=None):
         self.A = a
         self.B = b
         self.Operation = operation
         self.Opt_Val = optVal
-
-
+        self.result = None
+        # TODO: how to find result depending on the operation??
 
 
 def permutation(card1, card2, card3, card4, target=24):
@@ -35,6 +37,8 @@ def permutation(card1, card2, card3, card4, target=24):
     print("Beginning the permutation of number: {}, {}, {} and {}.".format(r1, r2, r3, r4))
     print("----------------------------------")
 
-# TODO: I am thinking about a class with 7 characteristics of permitted
-# Operations given two values. And then a set of 3 ``witnesses'' to keep track of the
-# Operation carried out so far.
+    # TODO: I am thinking about a class with 7 characteristics of permitted
+    # Operations given two values. And then a set of 3 ``witnesses'' to keep track of the
+    # Operation carried out so far.
+
+    for
