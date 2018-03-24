@@ -26,7 +26,7 @@ class Formula:
         if operation == Operation.VAL:
             self.result = Fraction(optVal, 1)
         elif operation == Operation.A_ADD_B:
-            self.result =
+            self.result = 
 
 
 
