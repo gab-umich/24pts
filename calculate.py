@@ -32,6 +32,12 @@ def permutation(card1, card2, card3, card4, target=24):
     r2 = card2.rank
     r3 = card3.rank
     r4 = card4.rank
+
+    f1 = Formula(0, 0, Operation.VAL, r1)
+    f2 = Formula(0, 0, Operation.VAL, r2)
+    f3 = Formula(0, 0, Operation.VAL, r3)
+    f4 = Formula(0, 0, Operation.VAL, r4)
+
     
     print("----------------------------------")
     print("Beginning the permutation of number: {}, {}, {} and {}.".format(r1, r2, r3, r4))
@@ -41,4 +47,13 @@ def permutation(card1, card2, card3, card4, target=24):
     # Operations given two values. And then a set of 3 ``witnesses'' to keep track of the
     # Operation carried out so far.
 
-    for
+    for op1 in Operation.__members__.items():
+        inter_1 = Formula(f1, f2, op1)
+        for op2 in Operation.__members__.items():
+            inter_2 = Formula(inter_1, f3, op2)
+            for op3 in Operation.__members__.items():
+                inter_3 = Formula(inter_2, f4, op3)
+                # arrived to final formula
+                if inter_3 == 24:
+                    print("Found 24!")
+                    # TODO: replace this with a printer
