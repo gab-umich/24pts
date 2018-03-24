@@ -23,20 +23,25 @@ class Formula:
         self.Opt_Val = optVal
         self.result = None
         # TODO: how to find result depending on the operation??
-        if operation == Operation.VAL:
-            self.result = Fraction(optVal, 1)
-        elif operation == Operation.A_ADD_B:
-            self.result = a.result + b.result
-        elif operation == Operation.A_MIN_B:
-            self.result = a.result - b.result
-        elif operation == Operation.B_MIN_A:
-            self.result = b.result - a.result
-        elif operation == Operation.A_MUL_B:
-            self.result = a.result * b.result
-        elif operation == Operation.A_DIV_B:
-            self.result = a.result / b.result
-        elif operation == Operation.B_DIV_A:
-            self.result = b.result / a.result
+        try:
+            if operation == Operation.VAL:
+                self.result = Fraction(optVal, 1)
+            elif operation == Operation.A_ADD_B:
+                self.result = a.result + b.result
+            elif operation == Operation.A_MIN_B:
+                self.result = a.result - b.result
+            elif operation == Operation.B_MIN_A:
+                self.result = b.result - a.result
+            elif operation == Operation.A_MUL_B:
+                self.result = a.result * b.result
+            elif operation == Operation.A_DIV_B:
+                self.result = a.result / b.result
+            elif operation == Operation.B_DIV_A:
+                self.result = b.result / a.result
+            else:
+                raise TypeError("operator type mismatch")
+        except TypeError as err:
+            print(err)
 
 
 
@@ -62,11 +67,14 @@ def permutation(card1, card2, card3, card4, target=24):
     # Operations given two values. And then a set of 3 ``witnesses'' to keep track of the
     # Operation carried out so far.
 
-    for op1 in Operation.__members__.items():
+    # real ops are the Operation incidences except Operation.VAL
+    real_ops = (op1 for op1, member in Operation.__members__.items() if op1 != Operation.VAL)
+
+    for op1 in real_ops:
         inter_1 = Formula(f1, f2, op1)
-        for op2 in Operation.__members__.items():
+        for op2 in real_ops:
             inter_2 = Formula(inter_1, f3, op2)
-            for op3 in Operation.__members__.items():
+            for op3 in real_ops:
                 inter_3 = Formula(inter_2, f4, op3)
                 # arrived to final formula
                 if inter_3 == 24:
